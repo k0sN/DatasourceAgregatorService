@@ -1,0 +1,64 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: datasource-aggregator-service
+
+  flyway:
+    enabled: false
+
+data-sources:
+  - name: postgres-data-base-1
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5433/database1
+    table: users
+    user: root
+    password: root
+    mapping:
+      id: id
+      username: username
+      name: name
+      surname: surname
+
+  - name: postgres-data-base-2
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5434/database2
+    table: ldap_users
+    user: root
+    password: root
+    mapping:
+      id: ldap_id
+      username: ldap_login
+      name: name
+      surname: surname
+
+  - name: mysql-data-base-3
+    strategy: mysql
+    url: jdbc:mysql://localhost:3366/database3
+    table: user_table
+    user: user
+    password: password
+    mapping:
+      id: user_id
+      username: user_login
+      name: user_name
+      surname: user_surname
+
+
+logging:
+  pattern:
+    console: "%green(%d) %magenta([%t]) %highlight(%-5level) %X{requestId} %X{user} %X{method} %X{path} %cyan(%C{1.}) %magenta(%m%n)"
+
+  level:
+    org.springframework: INFO
+    com.testtask.simplerest: INFO
+
+springdoc:
+  swagger-ui.path: /swagger
+  api-docs.path: /api-docs
+  packages-to-scan: com.testtask.simplerest.web
+  swagger-ui.tryItOutEnabled: true
+  swagger-ui.operationsSorter: method
+  swagger-ui.tagsSorter: alpha
+  swagger-ui.filter: true
