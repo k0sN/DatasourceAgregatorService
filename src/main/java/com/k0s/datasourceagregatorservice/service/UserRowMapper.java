@@ -1,6 +1,6 @@
 package com.k0s.datasourceagregatorservice.service;
 
-import com.testtask.simplerest.entity.User;
+import com.k0s.datasourceagregatorservice.entity.User;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

@@ -52,12 +52,12 @@ logging:
 
   level:
     org.springframework: INFO
-    com.testtask.simplerest: INFO
+    com.k0s.datasourceagregatorservice: INFO
 
 springdoc:
   swagger-ui.path: /swagger
   api-docs.path: /api-docs
-  packages-to-scan: com.testtask.simplerest.web
+  packages-to-scan: com.k0s.datasourceagregatorservice
   swagger-ui.tryItOutEnabled: true
   swagger-ui.operationsSorter: method
   swagger-ui.tagsSorter: alpha
